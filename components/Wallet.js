@@ -4,18 +4,22 @@ import { useEffect, useState } from 'react';
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 const Wallet = () => {
-  const { wallet, connect, connected, disconnect } = useWallet();
+  const { publicKey } = useWallet();
   const [address, setAddress] = useState('');
 
   useEffect(() => {
-    if (wallet?.publicKey) {
-      setAddress(wallet.publicKey.toString());
+    if (publicKey) {
+      // Truncate the address to first 4 and last 4 characters
+      const truncatedAddress = `${publicKey.toString().slice(0, 4)}...${publicKey.toString().slice(-4)}`;
+      setAddress(truncatedAddress);
     }
-  }, [wallet]);
+  }, [publicKey]);
 
   return (
     <div className="p-4 flex flex-col items-center space-y-4">
-      <WalletMultiButton className='wallet-adapter-button-trigger'>Connect Wallet</WalletMultiButton>
+      <WalletMultiButton className='wallet-adapter-button-trigger'>
+        {publicKey ? address : 'Connect Wallet'}
+      </WalletMultiButton>
     </div>
   );
 };

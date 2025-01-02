@@ -80,6 +80,12 @@
     z-index: -1;
 }
 
+/* Ensure header stays above content but below wallet */
+.header {
+    position: relative;
+    z-index: 99999;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -380,7 +386,8 @@
 
 .nft-table td {
     padding: 16px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: left; /* Align all cells to the left */
+    vertical-align: middle;
 }
 
 /* SOL text styling */
@@ -478,4 +485,82 @@
 
 .nav-button:hover {
     color: #ffffff;
+}
+
+/* Wallet Button Styling */
+.wallet-adapter-button-trigger {
+  border-radius: 12px !important;
+  transition: background-color 0.3s ease !important;
+  height: 40px !important;
+  padding: 0 16px !important;
+  font-size: 14px !important;
+  line-height: 40px !important;
+  z-index: 99999;
+}
+
+.wallet-adapter-button-trigger:hover {
+  background-color: #a78bfa !important;
+}
+
+.wallet-adapter-button[data-connected=true]:hover {
+  background-color: #a78bfa !important;
+}
+
+/* Super high z-index for all wallet components */
+.wallet-adapter-button-trigger {
+  z-index: 99999 !important;
+}
+
+.wallet-adapter-dropdown {
+  z-index: 99999 !important;
+}
+
+.wallet-adapter-dropdown-list {
+  z-index: 99999 !important;
+}
+
+/* Even higher z-index for modal components */
+.wallet-adapter-modal-container {
+  z-index: 999999 !important;
+}
+
+/* Ensure the modal overlay appears above the background but below the modal */
+.wallet-adapter-modal-overlay {
+  z-index: 999998 !important;
+}
+
+/* Ensure all wallet modals and popups are visible */
+.wallet-adapter-modal {
+  z-index: 999999 !important;
+}
+
+/* Make sure the modal wrapper is also properly stacked */
+.wallet-adapter-modal-wrapper {
+  z-index: 999999 !important;
+}
+
+/* Ranking number alignment */
+.nft-table td:first-child {
+    text-align: left;
+    width: 50px; /* Fixed width for ranking column */
+}
+
+/* Number columns alignment (Floor, Top Offer, Volume, etc.) */
+.nft-table td:nth-child(3),
+.nft-table td:nth-child(4),
+.nft-table td:nth-child(6),
+.nft-table td:nth-child(7),
+.nft-table td:nth-child(8) {
+    text-align: right; /* Align numbers to the right */
+}
+
+/* Percentage change alignment */
+.nft-table td:nth-child(5) {
+    text-align: right;
+}
+
+/* Last column (chart) alignment */
+.nft-table td:last-child {
+    text-align: right;
+    padding-right: 20px;
 }

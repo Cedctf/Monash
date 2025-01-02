@@ -4,6 +4,12 @@ import Link from 'next/link';
 import nftData from '@/components/assets.json';
 import "../styles/market.css";
 import "../components/discover.js";
+import dynamic from 'next/dynamic';
+
+const WalletButton = dynamic(
+    () => import('@/components/Wallet'),
+    { ssr: false }
+);
 
 const NFTMarketplace = () => {
     // Extract the NFTs array from the JSON data
@@ -59,10 +65,7 @@ const NFTMarketplace = () => {
                         />
                         <span className="currency">K</span>
                     </div>
-                    <button className="connect-wallet">
-                        Connect Wallet
-                        <span className="dropdown-arrow">▼</span>
-                    </button>
+                    <WalletButton />
                 </div>
             </header>
 
