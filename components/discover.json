@@ -1,0 +1,42 @@
+{
+  "collections": [
+    {
+      "id": 1,
+      "name": "Mad Lads",
+      "image": "/madlads.png",
+      "floor": 61.45,
+      "floorUSD": "$11.8K",
+      "totalVolume": "3.5M SOL",
+      "volumeUSD": "$676.7M",
+      "marketCap": "603.3K SOL",
+      "marketCapUSD": "$115.6M",
+      "topOffer": "57.04 SOL",
+      "topOfferUSD": "$10.9K",
+      "floor1d": 1.2,
+      "volume1d": "878 SOL",
+      "volumeUSD1d": "$168.2K",
+      "vol1dPercent": 3.5,
+      "sales1d": 14,
+      "listed": "266 (2.7%)"
+    },
+    {
+      "id": 2,
+      "name": "Critters Quest",
+      "image": "/critters.png",
+      "floor": 9.013,
+      "floorUSD": "$1.7K",
+      "totalVolume": "2.5K SOL",
+      "volumeUSD": "$469.8K",
+      "marketCap": "22.2K SOL",
+      "marketCapUSD": "$4.3M",
+      "topOffer": "2.925 SOL",
+      "topOfferUSD": "$560.3",
+      "floor1d": 156.1,
+      "volume1d": "619.8 SOL",
+      "volumeUSD1d": "$118.7K",
+      "vol1dPercent": 709.5,
+      "sales1d": 111,
+      "listed": "104 (4.2%)"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+.discover-page {
+    background-color: #13111C;
+    min-height: 100vh;
+    padding: 24px;
+    color: white;
+}
+
+.discover-header {
+    margin-bottom: 24px;
+}
+
+.tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.tab {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 16px;
+    cursor: pointer;
+    padding-bottom: 8px;
+}
+
+.tab.active {
+    color: white;
+    border-bottom: 2px solid #E42575;
+}
+
+.filters-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: center;
+}
+
+.filters-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.search-input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.currency-toggle, .time-filters {
+    display: flex;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.currency-toggle button, .time-filters button {
+    background: none;
+    border: none;
+    color: #666;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.currency-toggle button.active, .time-filters button.active {
+    background: #E42575;
+    color: white;
+}
+
+.collections-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.collections-table th {
+    text-align: left;
+    padding: 16px;
+    color: #666;
+    font-weight: normal;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.collections-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.name-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.name-cell img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.price-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.usd {
+    color: #666;
+    font-size: 12px;
+}
+
+.percent-cell.positive {
+    color: #45c493;
+}
+
+.percent-cell.negative {
+    color: #ff4976;
+}
+
+.star {
+    color: #666;
+    cursor: pointer;
+} 
