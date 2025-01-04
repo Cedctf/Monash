@@ -2,9 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import nftData from '@/components/assets.json';
-import "../styles/market.css";
 import "../components/discover.js";
-import Header from '../components/Header';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+
+const WalletButton = dynamic(
+    () => import('@/components/Wallet'),
+    { ssr: false }
+);
 
 const NFTMarketplace = () => {
     // Extract the NFTs array from the JSON data
@@ -34,10 +39,35 @@ const NFTMarketplace = () => {
     return (
         <div className="marketplace-container">
             <div className="background-container">
-                <img src="/snowy.gif" alt="background" className="background-video" />
+                <img src="/NFT/apple.jpg" alt="background" className="background-video" />
             </div>
 
-            <Header />
+            <header className="header">
+                <div className="header-left">
+                    <img src="/public/game/burger.png" alt="KiwiEden" className="logo" />
+                    <nav className="main-nav">
+                        <button>Collections</button>
+                        <button>Runes</button>
+                        <Link href="/discover">
+                            <button className="nav-button">Discover</button>
+                        </Link>
+                        <button>Mint</button>
+                        <button className="wallet-btn">Wallet</button>
+                    </nav>
+                </div>
+                
+                <div className="header-right">
+                    <div className="search-container">
+                        <input 
+                            type="text" 
+                            placeholder="Search collections on Magic Eden" 
+                            className="search-bar" 
+                        />
+                        <span className="currency">K</span>
+                    </div>
+                    <WalletButton />
+                </div>
+            </header>
 
             <div className="image-scroll">
                 {topNFTs.map(nft => (
@@ -55,7 +85,6 @@ const NFTMarketplace = () => {
                 <div className="nft-header">
                     <div className="header-left">
                         <h2 className="active-tab">Top Solana NFTs</h2>
-                        <h2 className="inactive-tab">Memecoin NFTs</h2>
                     </div>
                     <div className="header-right">
                         <div className="time-filters">
@@ -67,10 +96,8 @@ const NFTMarketplace = () => {
                             <button>30d</button>
                         </div>
                         <div className="currency-filters">
-                            <button className="active">Crypto</button>
-                            <button>USD</button>
+
                         </div>
-                        <button className="see-all">See all &gt;</button>
                     </div>
                 </div>
                 

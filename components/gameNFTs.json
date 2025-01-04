@@ -1,0 +1,60 @@
+{
+    "nfts": [
+      {
+        "id": 1,
+        "name": "Breakfast #001",
+        "image": "/game/breakfast.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 2,
+        "name": "Burger #002",
+        "image": "/game/burger.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 3,
+        "name": "Coffee #003",
+        "image": "/game/coffee.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 4,
+        "name": "Croissant #004",
+        "image": "/game/croissant.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 5,
+        "name": "IceCream #005",
+        "image": "/game/icecream.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 6,
+        "name": "Pancake #006",
+        "image": "/game/pancake.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 7,
+        "name": "Sushi #007",
+        "image": "/game/sushi.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      },
+      {
+        "id": 8,
+        "name": "Tiramisu #008",
+        "image": "/game/tiramisu.png",
+        "price": "0.0115 SOL",
+        "lastSale": "0.01 SOL"
+      }
+    ]
+  }

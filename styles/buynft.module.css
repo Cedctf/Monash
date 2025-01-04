@@ -1,0 +1,106 @@
+.pageContainer {
+    min-height: 100vh;
+    background: #1C1C27;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    background: #1C1C27;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+.nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav a {
+    color: #A7A7B0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.nav a:hover {
+    color: white;
+}
+
+.walletLink {
+    color: #E42575 !important;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.searchBar {
+    position: relative;
+    width: 300px;
+}
+
+.searchBar input {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: #2C2C35;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.searchBar input::placeholder {
+    color: #A7A7B0;
+}
+
+.searchKey {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #3C3C45;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: #A7A7B0;
+}
+
+.connectWallet {
+    background: #7B3FE4;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.connectWallet:hover {
+    background: #6933C0;
+}

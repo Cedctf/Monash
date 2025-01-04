@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Mad Lads",
-      "image": "angel.gif",
+      "image": "/NFT/angel.gif",
       "floor": 60.3,
       "topOffer": 57.04,
       "floorChange": -0.6,
@@ -18,7 +18,7 @@
     {
       "id": 2,
       "name": "Whal3s",
-      "image": "mouth.gif",
+      "image": "/NFT/mouth.gif",
       "floor": 24.24,
       "topOffer": 15.6,
       "floorChange": 49.4,
@@ -33,7 +33,7 @@
     {
       "id": 3,
       "name": "DeGods",
-      "image": "toothpaste.gif",
+      "image": "/NFT/toothpaste.gif",
       "floor": 14.06,
       "topOffer": 12.93,
       "floorChange": -7.6,
@@ -48,7 +48,7 @@
     {
       "id": 4,
       "name": "SMB Gen2",
-      "image": "/runningman.gif",
+      "image": "/NFT/runningman.gif",
       "floor": 31.11,
       "topOffer": 27.31,
       "floorChange": -1.1,
@@ -63,7 +63,7 @@
     {
       "id": 5,
       "name": "zereborn",
-      "image": "motor.gif",
+      "image": "/NFT/motor.gif",
       "floor": 4.658,
       "topOffer": 3.7,
       "floorChange": 3.8,
@@ -78,7 +78,7 @@
     {
       "id": 6,
       "name": "jpegs.fun Secret Society",
-      "image": "eyeliner.gif",
+      "image": "/NFT/eyeliner.gif",
       "floor": 3.045,
       "topOffer": 2.522,
       "floorChange": 54.6,
@@ -93,7 +93,7 @@
     {
       "id": 7,
       "name": "Retardio Cousins",
-      "image": "apple.jpg",
+      "image": "/NFT/apple.jpg",
       "floor": 13.5,
       "topOffer": 11.39,
       "floorChange": -1.1,

@@ -1,6 +1,5 @@
 import React from 'react';
 import collectionsData from '@/components/discover.json';
-import "../styles/discover.css";
 
 const DiscoverPage = () => {
 
