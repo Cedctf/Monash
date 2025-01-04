@@ -9,6 +9,7 @@ import {
   animate,
 } from "framer-motion";
 import '../styles/home.css';
+import Link from 'next/link';
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -63,30 +64,33 @@ export default function Home() {
       }}
       className="hero-section"
     >
-      <div className="relative z-10 flex flex-col items-center">
-
+      <div className="content-wrapper">
         <h1 className="hero-heading">
-        The Next Generation Solana NFT Marketplace
+          The Next Generation Solana NFT Marketplace
         </h1>
+
         <p className="hero-description">
           Trade, mint, and discover exclusive NFTs and participate in exciting play-to-earn games on Solana
         </p>
-        <motion.button
-          style={{
-            border,
-            boxShadow,
-          }}
-          whileHover={{
-            scale: 1.015,
-          }}
-          whileTap={{
-            scale: 0.985,
-          }}
-          className="cta-button"
-        >
-          Start Now!
-          <FiArrowRight className="arrow-icon" />
-        </motion.button>
+        
+        <Link href="/marketplace" passHref>
+          <motion.button
+            style={{
+              border,
+              boxShadow,
+            }}
+            whileHover={{
+              scale: 1.015,
+            }}
+            whileTap={{
+              scale: 0.985,
+            }}
+            className="cta-button group"
+          >
+            Start Now!
+            <FiArrowRight className="arrow-icon" />
+          </motion.button>
+        </Link>
       </div>
 
       <div className="canvas-container">
