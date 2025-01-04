@@ -4,12 +4,7 @@ import Link from 'next/link';
 import nftData from '@/components/assets.json';
 import "../styles/market.css";
 import "../components/discover.js";
-import dynamic from 'next/dynamic';
-
-const WalletButton = dynamic(
-    () => import('@/components/Wallet'),
-    { ssr: false }
-);
+import Header from '../components/Header';
 
 const NFTMarketplace = () => {
     // Extract the NFTs array from the JSON data
@@ -42,32 +37,7 @@ const NFTMarketplace = () => {
                 <img src="/snowy.gif" alt="background" className="background-video" />
             </div>
 
-            <header className="header">
-                <div className="header-left">
-                    <img src="/me-logo.svg" alt="KiwiEden" className="logo" />
-                    <nav className="main-nav">
-                        <button>Collections</button>
-                        <button>Runes</button>
-                        <Link href="/discover">
-                            <button className="nav-button">Discover</button>
-                        </Link>
-                        <button>Mint</button>
-                        <button className="wallet-btn">Wallet</button>
-                    </nav>
-                </div>
-                
-                <div className="header-right">
-                    <div className="search-container">
-                        <input 
-                            type="text" 
-                            placeholder="Search collections on Magic Eden" 
-                            className="search-bar" 
-                        />
-                        <span className="currency">K</span>
-                    </div>
-                    <WalletButton />
-                </div>
-            </header>
+            <Header />
 
             <div className="image-scroll">
                 {topNFTs.map(nft => (
