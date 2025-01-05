@@ -10,6 +10,7 @@ import {
 } from "framer-motion";
 import '../styles/home.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
@@ -65,9 +66,12 @@ export default function Home() {
       className="hero-section"
     >
       <div className="content-wrapper">
-        <h1 className="hero-heading">
-          The Next Generation Solana NFT Marketplace
-        </h1>
+        <div className="hero-header">
+          
+          <h1 className="hero-heading">
+            The Next Generation Solana NFT Marketplace
+          </h1>
+        </div>
 
         <p className="hero-description">
           Trade, mint, and discover exclusive NFTs and participate in exciting play-to-earn games on Solana

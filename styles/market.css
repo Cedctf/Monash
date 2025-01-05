@@ -85,18 +85,90 @@
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    margin-top: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(10px);
+    margin-top: 20px;
+    background: rgba(0, 0, 0, 0.3);
 }
 
-.nft-table th {
+.nft-table th,
+.nft-table td {
     padding: 16px;
-    text-align: left;
-    font-weight: 600;
+    text-align: right; /* Default alignment for numbers */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Prevent wrapping */
+    color: white;
+}
+
+/* Add these specific column alignments */
+.nft-table th:first-child,
+.nft-table td:first-child {
+    text-align: left; /* Rank column */
+    width: 80px;
+}
+
+.nft-table th:nth-child(2),
+.nft-table td:nth-child(2) {
+    text-align: left; /* Collection name column */
+}
+
+/* Update price columns */
+.nft-table td:nth-child(3),
+.nft-table td:nth-child(4),
+.nft-table td:nth-child(6) {
+    text-align: right;
+    width: 120px;
+}
+
+/* Update percentage column */
+.nft-table td:nth-child(5) {
+    text-align: right;
+    width: 100px;
+}
+
+/* Update sales column */
+.nft-table td:nth-child(7) {
+    text-align: right;
+    width: 80px;
+}
+
+/* Update listed column */
+.listed-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    width: 120px;
+}
+
+/* Update chart column */
+.nft-table td:last-child {
+    text-align: right;
+    width: 120px;
+    padding-right: 24px;
+}
+
+/* Update change value display */
+.change-value {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+/* Update collection cell */
+.collection-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 24px;
+}
+
+/* Update header styling */
+.nft-table th {
     color: #94a3b8;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.02);
+    font-weight: 500;
+    font-size: 14px;
+    padding-bottom: 12px;
+    text-transform: uppercase;
 }
 
 .nft-table td {
