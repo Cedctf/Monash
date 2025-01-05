@@ -1,13 +1,15 @@
 .pageContainer {
     min-height: 100vh;
     background: #1C1C27;
+    margin: 0;
+    padding: 0;
 }
 
 .bannerSection {
     position: relative;
     height: calc(100vh - 64px);
     width: 100%;
-    margin-top: 64px;
+    margin-top: 0;
 }
 
 .bannerBackground {

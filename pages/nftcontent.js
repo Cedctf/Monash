@@ -4,7 +4,7 @@ import Image from 'next/image';
 import styles from '../styles/nftcontent.module.css';
 import gameNFTs from '../components/gameNFTs.json';
 import Link from 'next/link';
-
+import Header from '../components/Header';
 
 export default function NFTContent() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -13,38 +13,8 @@ export default function NFTContent() {
 
     return (
         <div className={styles.pageContainer}>
-            {/* Header */}
-            <div className={styles.header}>
-                <div className={styles.headerLeft}>
-                    <Link href="/" className={styles.logo}>
-                        <Image src="/game/coffee.png" alt="Logo" width={40} height={40} />
-                        <span>KiwiEden</span>
-                    </Link>
-                    <nav className={styles.nav}>
-                        <Link href="/collections">Collections</Link>
-                        <Link href="/runes">Runes</Link>
-                        <Link href="/discover">Discover</Link>
-                        <Link href="/mint">Mint</Link>
-                        <Link href="/wallet" className={styles.walletLink}>Wallet</Link>
-                    </nav>
-                </div>
-
-                <div className={styles.headerRight}>
-                    <div className={styles.searchBar}>
-                        <input
-                            type="text"
-                            placeholder="Search collections on Magic Eden"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                        <span className={styles.searchKey}>K</span>
-                    </div>
-                    <button className={styles.connectWallet}>
-                        Connect Wallet
-                    </button>
-                </div>
-            </div>
-
+            <Header />
+            
             {/* Full Screen Banner */}
             <div className={styles.bannerSection}>
                 <div className={styles.bannerBackground}>

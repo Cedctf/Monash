@@ -1,0 +1,140 @@
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.modalContent {
+    background: rgba(30, 30, 40, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.closeButton {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.nftDetails {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.imageContainer {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.nftImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info {
+    color: white;
+}
+
+.info h2 {
+    margin: 0 0 16px 0;
+    font-size: 24px;
+}
+
+.priceInfo {
+    display: flex;
+    gap: 20px;
+    margin-top: 16px;
+}
+
+.price {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.solPrice {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.solIcon {
+    width: 14px;
+    height: 14px;
+}
+
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.statBox {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.statLabel {
+    color: #a0a0a0;
+    font-size: 14px;
+}
+
+.positive {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.negative {
+    color: #f44336;
+    font-weight: bold;
+}
+
+.listedInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.subText {
+    color: #a0a0a0;
+    font-size: 12px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .nftDetails {
+        grid-template-columns: 1fr;
+    }
+}

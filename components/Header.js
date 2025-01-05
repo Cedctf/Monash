@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import styles from '@/styles/nftcontent.module.css';
+
 
 const WalletButton = dynamic(
     () => import('@/components/Wallet'),
@@ -10,15 +12,20 @@ const Header = () => {
     return (
         <header className="header">
             <div className="header-left">
-                <img src="/me-logo.svg" alt="KiwiEden" className="logo" />
+                <div className={styles.logo}>
+                    <img src="/game/coffee.png" alt="Logo" width={40} height={40} />
+                    <span>KiwiEden</span>
+                </div>
                 <nav className="main-nav">
-                    <button>Collections</button>
-                    <button>Runes</button>
-                    <Link href="/discover">
+                    <Link href="/profile">
+                        <button className="nav-button">Collections</button>
+                    </Link>
+                    <Link href="/marketplace">
                         <button className="nav-button">Discover</button>
                     </Link>
-                    <button>Mint</button>
-                    <button className="wallet-btn">Wallet</button>
+                    <Link href="/game">
+                        <button className="nav-button">Game</button>
+                    </Link>
                 </nav>
             </div>
             

@@ -10,6 +10,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { useRouter } from 'next/router';
 import PopupNotification from '../components/PopupNotification';
+import Header from '../components/Header';
 
 const WalletButton = dynamic(
     () => import('@/components/Wallet'),
@@ -64,32 +65,7 @@ const NFTMarketplace = () => {
                 />
             </div>
 
-            <header className="header">
-                <div className="header-left">
-                    <img src="/public/game/burger.png" alt="KiwiEden" className="logo" />
-                    <nav className="main-nav">
-                        <button>Collections</button>
-                        <button>Runes</button>
-                        <Link href="/discover">
-                            <button className="nav-button">Discover</button>
-                        </Link>
-                        <button>Mint</button>
-                        <button className="wallet-btn">Wallet</button>
-                    </nav>
-                </div>
-                
-                <div className="header-right">
-                    <div className="search-container">
-                        <input 
-                            type="text" 
-                            placeholder="Search collections on Magic Eden" 
-                            className="search-bar" 
-                        />
-                        <span className="currency">K</span>
-                    </div>
-                    <WalletButton />
-                </div>
-            </header>
+           <Header />
 
             {/* Scrolling NFT Display */}
             <ScrollingNFTDisplay />

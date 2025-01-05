@@ -1,0 +1,202 @@
+.profileBanner {
+    width: 70%;
+    margin: 20px auto;
+    padding: 50px;
+    background: rgba(30, 30, 40, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+}
+
+.profileInfo {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profileLeft {
+    flex-shrink: 0;
+}
+
+.profileRight {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    text-align: center;
+}
+
+.profileAvatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.avatarImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profileDetails {
+    color: white;
+}
+
+.walletAddress {
+    font-size: 24px;
+    color: white;
+    margin: 0;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    color: white;
+    justify-content: center;
+}
+
+.stats span {
+    font-size: 14px;
+}
+
+.activeOn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.chainLogo {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    margin-top: 1px;
+}
+
+.addressContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.copyButton {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #a0a0a0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.copyButton:hover {
+    color: white;
+}
+
+.copyIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.checkmark {
+    color: #4CAF50;
+    font-size: 16px;
+}
+
+.profileContent {
+    padding-top: 20px;
+}
+
+.itemsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.itemFilters {
+    display: flex;
+    gap: 10px;
+}
+
+.searchInput {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.sortSelect {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+}
+
+.itemsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.itemCard {
+    background: rgba(30, 30, 40, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.itemCard:hover {
+    transform: translateY(-5px);
+}
+
+.itemImageContainer {
+    aspect-ratio: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.itemImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.itemInfo {
+    padding: 12px;
+}
+
+.itemName {
+    color: white;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.itemPrice {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: white;
+}
+
+.solIcon {
+    width: 12px;
+    height: 12px;
+}
+
+.profileContent h3 {
+    color: white;
+    margin-bottom: 20px;
+}

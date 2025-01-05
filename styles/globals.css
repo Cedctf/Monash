@@ -44,3 +44,33 @@ a {
     color-scheme: dark;
   }
 }
+
+.wallet-adapter-dropdown {
+    z-index: 99999 !important;
+    position: relative;
+}
+
+.wallet-adapter-dropdown-list {
+    z-index: 99999 !important;
+    position: fixed !important;
+    transform: translateZ(0) !important;
+}
+
+/* Add this to ensure no other elements have higher z-index */
+.header {
+    position: relative;
+    z-index: 99999;
+}
+
+/* Add these new styles to ensure NFT elements stay below */
+.nft-row-container {
+    z-index: 1 !important;
+}
+
+.nft-image-container {
+    z-index: 1 !important;
+}
+
+.background-container {
+    z-index: 0 !important;
+}
