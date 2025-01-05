@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import styles from '../styles/Game.module.css';
 import { Pacifico, Poppins } from 'next/font/google';
@@ -29,6 +29,7 @@ const CANDY_TYPES = [
 const GAME_TIME = 999999;
 
 export default function CandyCrush() {
+    const router = useRouter();
     const [board, setBoard] = useState([]);
     const [selectedCandy, setSelectedCandy] = useState(null);
     const [score, setScore] = useState(0);
@@ -154,6 +155,10 @@ export default function CandyCrush() {
         }
     };
 
+    const handleBackToMenu = () => {
+        router.push('/marketplace');
+    };
+
     return (
         <div className={styles.gameContainer}>
             <div className={styles.backgroundContainer}>
@@ -169,6 +174,10 @@ export default function CandyCrush() {
 
             <button onClick={initializeBoard} className={styles.restartButton}>
                 Restart Game
+            </button>
+
+            <button onClick={handleBackToMenu} className={styles.menuButton}>
+                Back to Menu
             </button>
 
             <button 

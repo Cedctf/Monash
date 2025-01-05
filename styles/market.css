@@ -1,7 +1,8 @@
 .marketplace-container {
-    position: relative;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
-    z-index: 1;
+    position: relative;
 }
 
 .background-container {
@@ -9,14 +10,19 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    z-index: -1;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .background-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    filter: brightness(0.6); /* Darken the background slightly */
 }
 
 /* Add shadow boxes for content sections */
@@ -60,12 +66,142 @@
 }
 
 .nft-section {
-    background: rgba(19, 17, 28, 0.3); /* More transparent background */
+    padding-top: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.95) 100%);
+    border-radius: 20px 20px 0 0;
+    position: relative;
+    z-index: 10;
+    margin-top: 0; /* Reset margin */
+}
+
+.nft-header {
+    padding: 24px 32px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px 20px 0 0;
+    margin-top: -20px; /* Pull up slightly to overlap */
+}
+
+.nft-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.nft-table th {
+    padding: 16px;
+    text-align: left;
+    font-weight: 600;
+    color: #94a3b8;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.nft-table td {
+    padding: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s ease;
+}
+
+.nft-table tr:hover td {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Enhanced chart styles */
+.chart-placeholder {
+    width: 120px;
+    height: 40px;
+    stroke-width: 1.5;
+    fill: none;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.2));
+}
+
+.positive-chart {
+    stroke: #4ade80;
+    filter: drop-shadow(0 0 2px rgba(74, 222, 128, 0.5));
+}
+
+.negative-chart {
+    stroke: #f87171;
+    filter: drop-shadow(0 0 2px rgba(248, 113, 113, 0.5));
+}
+
+/* Enhanced collection cell styles */
+.collection-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.collection-img {
+    width: 48px;
+    height: 48px;
     border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Lighter shadow */
-    margin: 20px;
-    padding: 20px;
-    backdrop-filter: blur(4px); /* Reduced blur effect */
+    object-fit: cover;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced time filters */
+.time-filters {
+    display: flex;
+    gap: 8px;
+    padding: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.time-filters button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.time-filters button:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.time-filters button.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Stats styling */
+.positive, .negative {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.positive {
+    color: #4ade80;
+    text-shadow: 0 0 10px rgba(74, 222, 128, 0.3);
+}
+
+.negative {
+    color: #f87171;
+    text-shadow: 0 0 10px rgba(248, 113, 113, 0.3);
+}
+
+/* Listed cell styling */
+.listed-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.listed-percentage {
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.listed-ratio {
+    font-size: 0.85em;
+    color: #94a3b8;
 }
 
 /* Remove the previous overlay if it exists */
@@ -573,4 +709,368 @@
 
 .bannerBackground:hover {
     transform: scale(1.02); /* Subtle zoom effect on hover */
+}
+
+/* Add styles for the NFT sections */
+.nft-section-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Style for each NFT section */
+.nft-section {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* NFT image container */
+.nft-image-container {
+    position: relative;
+    width: calc(50% - 1rem);
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nft-image-container:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* NFT image styling */
+.nft-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* NFT information overlay */
+.nft-info-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nft-image-container:hover .nft-info-overlay {
+    opacity: 1;
+}
+
+/* Add loading state */
+.nft-image-container.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Add click effect */
+.nft-image-container:active {
+    transform: scale(0.98);
+}
+
+/* NFT text styling */
+.nft-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.nft-stats {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.nft-floor {
+    font-size: 1.25rem;
+}
+
+.nft-change {
+    font-size: 1.25rem;
+}
+
+.nft-change.positive {
+    color: #4ade80;
+}
+
+.nft-change.negative {
+    color: #f87171;
+}
+
+.nft-volume {
+    font-size: 1.25rem;
+    color: #d1d5db;
+}
+
+.nft-listed {
+    margin-top: 1rem;
+    color: #9ca3af;
+}
+
+/* Background gradient */
+.background-gradient {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.5) 50%,
+        rgba(0,0,0,0.8) 100%
+    );
+    pointer-events: none;
+}
+
+/* Smooth scroll container */
+.smooth-scroll {
+    position: relative;
+    min-height: 100vh;
+    background-color: #09090b;
+}
+
+/* Keep your existing header and other styles below */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    /* ... rest of your header styles ... */
+}
+
+.nft-section:hover .nft-info-overlay {
+    opacity: 1;
+}
+
+.nft-row {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nft-row.last-row {
+    margin-bottom: 0; /* Remove margin for last row */
+}
+
+.nft-row-container {
+    display: flex;
+    gap: 2rem;
+    max-width: 90vw;
+    width: 100%;
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+.nft-image-container {
+    position: relative;
+    width: calc(50% - 1rem);
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    transform-origin: center center;
+    will-change: transform, opacity;
+}
+
+.nft-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+}
+
+.nft-info-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nft-image-container:hover .nft-info-overlay {
+    opacity: 1;
+}
+
+/* Add a subtle gradient overlay to help with section transitions */
+.nft-row::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+    pointer-events: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .nft-row-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nft-image-container {
+        width: 100%;
+    }
+}
+
+/* Add these to your existing CSS */
+
+.chart-placeholder {
+    width: 100px;
+    height: 30px;
+    stroke-width: 2;
+    fill: none;
+}
+
+.positive-chart {
+    stroke: #4ade80;
+}
+
+.negative-chart {
+    stroke: #f87171;
+}
+
+.nft-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.nft-table th,
+.nft-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.collection-cell {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.collection-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.star {
+    margin-right: 8px;
+    color: #ffd700;
+}
+
+.sol {
+    color: #9ca3af;
+    font-size: 0.9em;
+}
+
+.positive {
+    color: #4ade80;
+}
+
+.negative {
+    color: #f87171;
+}
+
+.listed-cell {
+    display: flex;
+    flex-direction: column;
+}
+
+.listed-percentage {
+    font-weight: bold;
+}
+
+.listed-ratio {
+    font-size: 0.9em;
+    color: #9ca3af;
+}
+
+.time-filters {
+    display: flex;
+    gap: 8px;
+}
+
+.time-filters button {
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: transparent;
+    color: #9ca3af;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.time-filters button.active {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Ensure content appears above background */
+.header,
+.nft-row,
+.nft-section {
+    position: relative;
+    z-index: 1;
+}
+
+/* Add a subtle gradient overlay */
+.marketplace-container::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Add styles for clickable chart rows */
+.chart-row {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.chart-row:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.chart-row td {
+    transition: color 0.2s ease;
+}
+
+.chart-row:hover td {
+    color: #ffffff;
 }

@@ -156,7 +156,7 @@ export default function NFTContent() {
                                             Buy now
                                             <div className={styles.cartIcon}>
                                                 <Image 
-                                                    src="/.png" 
+                                                    src="/contentnft/cart.png" 
                                                     alt="Cart" 
                                                     width={24} 
                                                     height={24} 

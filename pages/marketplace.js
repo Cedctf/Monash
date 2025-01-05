@@ -1,10 +1,15 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import nftData from '@/components/assets.json';
 import "../components/discover.js";
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
+import { ReactLenis } from '@studio-freight/react-lenis';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { useRouter } from 'next/router';
+import PopupNotification from '../components/PopupNotification';
 
 const WalletButton = dynamic(
     () => import('@/components/Wallet'),
@@ -12,10 +17,15 @@ const WalletButton = dynamic(
 );
 
 const NFTMarketplace = () => {
-    // Extract the NFTs array from the JSON data
-    const topNFTs = nftData.nfts;
+    const [showPopup, setShowPopup] = useState(false);
+    const router = useRouter();
 
-    // Different path patterns you can use:
+    useEffect(() => {
+        // Show popup when component mounts
+        setShowPopup(true);
+    }, []);
+
+    // Chart patterns
     const chartPatterns = {
         downTrend: "M0 10 L30 15 L50 25 L70 20 L100 25",
         upTrend: "M0 20 L30 15 L50 5 L70 10 L100 5",
@@ -27,7 +37,6 @@ const NFTMarketplace = () => {
         wavyUp: "M0 20 L20 15 L40 25 L60 10 L80 15 L100 5"
     };
 
-    // Helper function to determine if a pattern is trending up
     const isUpwardTrend = (pattern) => {
         return [
             chartPatterns.upTrend,
@@ -36,10 +45,23 @@ const NFTMarketplace = () => {
         ].includes(pattern);
     };
 
+    // Add click handler for chart NFTs
+    const handleChartNFTClick = (nft) => {
+        router.push('/nftcontent');
+    };
+
     return (
         <div className="marketplace-container">
+            {showPopup && (
+                <PopupNotification onClose={() => setShowPopup(false)} />
+            )}
+            
             <div className="background-container">
-                <img src="/NFT/apple.jpg" alt="background" className="background-video" />
+                <img 
+                    src="/NFT/snowy.gif" 
+                    alt="background" 
+                    className="background-video"
+                />
             </div>
 
             <header className="header">
@@ -69,18 +91,10 @@ const NFTMarketplace = () => {
                 </div>
             </header>
 
-            <div className="image-scroll">
-                {topNFTs.map(nft => (
-                    <div key={nft.id} className="nft-image">
-                        <img src={nft.image} alt={nft.name} className="nft-img" />
-                        <div className="nft-info">
-                            <h3>{nft.name}</h3>
-                            <p>{nft.description}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            {/* Scrolling NFT Display */}
+            <ScrollingNFTDisplay />
 
+            {/* NFT Rankings Table */}
             <div className="nft-section">
                 <div className="nft-header">
                     <div className="header-left">
@@ -96,7 +110,6 @@ const NFTMarketplace = () => {
                             <button>30d</button>
                         </div>
                         <div className="currency-filters">
-
                         </div>
                     </div>
                 </div>
@@ -116,8 +129,12 @@ const NFTMarketplace = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {topNFTs.map((nft, index) => (
-                            <tr key={nft.id}>
+                        {nftData.nfts.map((nft, index) => (
+                            <tr 
+                                key={nft.id} 
+                                onClick={() => handleChartNFTClick(nft)}
+                                className="chart-row"
+                            >
                                 <td>
                                     <span className="star">☆</span>
                                     {index + 1}
@@ -174,6 +191,102 @@ const NFTMarketplace = () => {
                 </table>
             </div>
         </div>
+    );
+};
+
+const ScrollingNFTDisplay = () => {
+    const nftPairs = [];
+    for (let i = 0; i < nftData.nfts.length; i += 2) {
+        nftPairs.push(nftData.nfts.slice(i, i + 2));
+    }
+
+    return (
+        <div className="relative">
+            <div 
+                style={{ height: `${100 * nftPairs.length}vh` }}
+                className="relative w-full"
+            >
+                {nftPairs.map((pair, pairIndex) => (
+                    <NFTRow 
+                        key={pairIndex}
+                        nfts={pair}
+                        index={pairIndex}
+                        totalPairs={nftPairs.length}
+                        isLast={pairIndex === nftPairs.length - 1}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+const NFTRow = ({ nfts, index, totalPairs, isLast }) => {
+    const router = useRouter();
+    const ref = useRef(null);
+    const { scrollYProgress } = useScroll({
+        target: ref,
+        offset: ["start end", "end start"]
+    });
+
+    const handleNFTClick = () => {
+        router.push('/nftcontent');
+    };
+
+    return (
+        <motion.div
+            ref={ref}
+            className={`nft-row ${isLast ? 'last-row' : ''}`}
+            style={{
+                opacity: useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]),
+                position: 'sticky',
+                top: 0,
+                height: '100vh',
+                zIndex: totalPairs - index
+            }}
+        >
+            <div className="nft-row-container">
+                {nfts.map((nft, i) => (
+                    <motion.div 
+                        key={i} 
+                        className="nft-image-container"
+                        initial={{ y: 50, opacity: 0 }}
+                        animate={{ y: 0, opacity: 1 }}
+                        transition={{ 
+                            duration: 0.8,
+                            delay: i * 0.2
+                        }}
+                        onClick={() => handleNFTClick(nft)}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                    >
+                        <motion.img
+                            src={nft.image}
+                            alt={nft.name}
+                            className="nft-image"
+                            style={{
+                                scale: useTransform(scrollYProgress, [0, 1], [1.1, 1]),
+                                willChange: 'transform'
+                            }}
+                            loading="eager"
+                        />
+                        
+                        <div className="nft-info-overlay">
+                            <h2 className="nft-title">{nft.name}</h2>
+                            <div className="nft-stats">
+                                <span className="nft-floor">Floor: {nft.floor} SOL</span>
+                                <span className={`nft-change ${nft.floorChange > 0 ? 'positive' : 'negative'}`}>
+                                    {nft.floorChange > 0 ? '▲' : '▼'} {Math.abs(nft.floorChange)}%
+                                </span>
+                            </div>
+                            <p className="nft-volume">Volume: {nft.volume}</p>
+                            <div className="nft-listed">
+                                Listed: {nft.listed?.current} / {nft.listed?.total}
+                            </div>
+                        </div>
+                    </motion.div>
+                ))}
+            </div>
+        </motion.div>
     );
 };
 

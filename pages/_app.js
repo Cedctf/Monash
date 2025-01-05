@@ -9,6 +9,8 @@ import {
 } from '@solana/wallet-adapter-wallets';
 import { clusterApiUrl } from '@solana/web3.js';
 import { useMemo } from 'react';
+import '../styles/market.css'
+import '../styles/globals.css'
 
 const inter = Inter({
   subsets: ['latin'],
